@@ -1,0 +1,8 @@
+def call(String appName, String mongoName, String mongoVol, String dockerNet) {
+    sh """
+        docker rm -f ${appName} || true
+        docker rm -f ${mongoName} || true
+        docker volume rm ${mongoVol} || true
+        docker network rm ${dockerNet} || true
+    """
+}
